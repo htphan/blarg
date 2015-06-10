@@ -5,7 +5,7 @@
 </div>
 <div class="post-input">
   <%= label_tag(:tags, "Tags: ") %>
-  <%= text_field_tag(:tags, form.tags.map { |tag| tag.name } * ", ", size: 40) %>
+  <%= text_field_tag(:tags, form.tags.map { |tag| tag.name }.join(", "), size: 40) %>
 </div>
 
 <div class="post-input">

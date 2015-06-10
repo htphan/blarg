@@ -36,7 +36,7 @@ class PostsController < ApplicationController
     tags = params['tags'].split(", ")
     tag_models = tags.map { |tag| Tag.find_or_create_by(name: tag) }
     @post.update_attributes(title: params['title'], tags: tag_models, 
-                            content: params['content'], written_at: DateTime.now)
+                            content: params['content'])
     redirect_to post_path(@post)
   end
 
