@@ -11,6 +11,7 @@ class PostsController < ApplicationController
   end
 
   def new
+    @form = Post.new(title: nil, content: nil, written_at: nil, tags: [])
     render :new
   end
 
@@ -23,6 +24,20 @@ class PostsController < ApplicationController
                         tags: tag_models)
     redirect_to posts_path
     # redirect_to post_path(@post)
+  end
+
+  def edit
+    @form = Post.find_by(id: params['id'])
+    render :edit
+  end
+
+  def update
+    @post = Post.find_by(id: params['id'])
+    tags = params['tags'].split(", ")
+    tag_models = tags.map { |tag| Tag.find_or_create_by(name: tag) }
+    @post.update_attributes(title: params['title'], tags: tag_models, 
+                            content: params['content'])
+    redirect_to post_path(@post)
   end
 
   protected

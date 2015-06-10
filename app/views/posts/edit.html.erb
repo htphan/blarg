@@ -1,9 +1,7 @@
-<h2>New Post</h2>
+<h2>Edit Post</h2>
 
 <% # Title, Tags, Text %>
-
-
-<%= form_tag("/posts", class: 'post-form') do %>
+<%= form_tag("/post/#{@form.id}", method: :put, class: 'edit-form') do %>
   <%= render partial: 'form', object: @form %>
 <% end %>
 

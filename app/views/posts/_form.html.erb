@@ -1,0 +1,18 @@
+<div class="post-input">
+  <%= label_tag(:title, "Title: ") %>
+  <%= text_field_tag(:title, form.title, size: 40, maxlength: 40) %>
+
+</div>
+<div class="post-input">
+  <%= label_tag(:tags, "Tags: ") %>
+  <%= text_field_tag(:tags, form.tags.map { |tag| tag.name } * ", ", size: 40) %>
+</div>
+
+<div class="post-input">
+  <%= label_tag(:content, "Content: ") %>
+  <br/>
+  <%= text_area_tag(:content, form.content, rows: 40, cols: 80) %>
+</div>
+
+<br/>
+<div><%= submit_tag 'Save' %></div> 
