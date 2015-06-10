@@ -2,10 +2,7 @@
 
 <% # Title, Tags, Text %>
 
-
-<%= form_tag("/posts", class: 'post-form') do %>
-  <%= render partial: 'form', object: @form %>
-<% end %>
+<%= render partial: 'form' %>
 
 <br/>
 <div>

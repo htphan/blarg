@@ -11,7 +11,9 @@ class PostsController < ApplicationController
   end
 
   def new
-    @form = Post.new(title: nil, content: nil, written_at: nil, tags: [])
+    @form = Post.new
+    @path = posts_path
+    @http_verb = :post
     render :new
   end
 
@@ -28,6 +30,8 @@ class PostsController < ApplicationController
 
   def edit
     @form = Post.find_by(id: params['id'])
+    @path = post_path(@form)
+    @http_verb = :put
     render :edit
   end
 

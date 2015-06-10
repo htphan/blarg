@@ -1,9 +1,8 @@
 <h2>Edit Post</h2>
 
 <% # Title, Tags, Text %>
-<%= form_tag(post_path(@form), method: :put, class: 'edit-form') do %>
-  <%= render partial: 'form', object: @form %>
-<% end %>
+  
+<%= render partial: 'form' %>
 
 <br/>
 <div>
